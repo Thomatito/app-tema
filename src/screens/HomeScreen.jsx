@@ -1,6 +1,9 @@
-import { Surface, Text } from "react-native-paper";
+import { Surface, Switch, Text } from "react-native-paper";
+import { useTheme } from "../contexts/ThemeContext";
 
 export default function HomeScreen() {
+  const { toggleTheme, isDarkTheme } = useTheme();
+
   return (
     <Surface
       style={{
@@ -9,7 +12,8 @@ export default function HomeScreen() {
         alignItems: "center",
       }}
     >
-      <Text>Home Screen</Text>
+      <Switch value={isDarkTheme} onValueChange={toggleTheme} />
+      <Text>Mudar Tema</Text>
     </Surface>
   );
 }
